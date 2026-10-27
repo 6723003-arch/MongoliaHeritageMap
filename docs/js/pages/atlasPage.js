@@ -9,65 +9,282 @@ export async function atlasPage(root) {
 
   const page = document.createElement("main");
   page.className = "mx-auto max-w-7xl px-6 py-6";
+
   page.innerHTML = `
+    <style>
+      .atlas-layout {
+        display: grid;
+        grid-template-columns: 340px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .atlas-sidebar {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      .atlas-search-header {
+        padding: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .atlas-search-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .atlas-search-input {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+      }
+
+      .atlas-search-input:focus-visible {
+        outline: 2px solid #f5b82e;
+        outline-offset: 2px;
+      }
+
+      .atlas-clear {
+        padding: 0 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+      }
+
+      .atlas-status {
+        margin-top: 10px;
+        font-size: 13px;
+      }
+
+      .atlas-groups {
+        max-height: calc(100vh - 23rem);
+        min-height: 240px;
+        overflow-y: auto;
+        padding: 8px;
+      }
+
+      .atlas-group {
+        margin-bottom: 8px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .atlas-group summary {
+        padding: 12px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .atlas-group-count {
+        margin-left: 6px;
+        color: #f5b82e;
+        font-size: 12px;
+      }
+
+      .atlas-monument {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 12px;
+        border: 0;
+        border-top: 1px solid var(--border);
+        background: transparent;
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .atlas-monument:hover,
+      .atlas-monument:focus-visible {
+        background: rgba(245, 184, 46, 0.1);
+      }
+
+      .atlas-monument img {
+        width: 52px;
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 7px;
+        object-fit: cover;
+      }
+
+      .atlas-monument-name {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .atlas-monument-location {
+        display: block;
+        margin-top: 3px;
+        font-size: 12px;
+      }
+
+      .atlas-map-box {
+        height: calc(100vh - 15rem);
+        min-height: 420px;
+      }
+
+      .atlas-wrap .aimag.search-match {
+        stroke: #f5b82e;
+        stroke-width: 2;
+        vector-effect: non-scaling-stroke;
+      }
+
+      @media (max-width: 850px) {
+        .atlas-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .atlas-groups {
+          min-height: 0;
+          max-height: 300px;
+        }
+
+        .atlas-map-box {
+          height: 50vh;
+          min-height: 300px;
+        }
+      }
+    </style>
+
     <div class="mb-4 flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h1 class="text-2xl font-bold tracking-tight">${t("atlas.title")}</h1>
-        <p class="text-sm text-muted-foreground">${t("atlas.subtitle")}</p>
+        <h1 class="text-2xl font-bold tracking-tight">
+          ${t("atlas.title")}
+        </h1>
+        <p class="text-sm text-muted-foreground">
+          ${t("atlas.subtitle")}
+        </p>
       </div>
+
       <div class="flex gap-2">
-        <span class="${badge("outline")}"><i class="mr-1.5 inline-block h-2.5 w-2.5 rounded-full" style="background:var(--aimag-data)"></i>${t("atlas.legendData")}</span>
-        <span class="${badge("outline")}"><i class="mr-1.5 inline-block h-2.5 w-2.5 rounded-full" style="background:var(--aimag)"></i>${t("atlas.legendSoon")}</span>
+        <span class="${badge("outline")}">
+          <i
+            class="mr-1.5 inline-block h-2.5 w-2.5 rounded-full"
+            style="background:var(--aimag-data)"
+          ></i>${t("atlas.legendData")}
+        </span>
+
+        <span class="${badge("outline")}">
+          <i
+            class="mr-1.5 inline-block h-2.5 w-2.5 rounded-full"
+            style="background:var(--aimag)"
+          ></i>${t("atlas.legendSoon")}
+        </span>
       </div>
     </div>
 
-    <section class="mb-4 rounded-xl border border-border bg-card/40 p-4">
-  <label for="monumentSearch" class="mb-2 block text-sm font-semibold">
-    ${t("atlas.searchLabel")}
-  </label>
+    <div class="atlas-layout">
+      <aside class="atlas-sidebar bg-card/40">
+        <div class="atlas-search-header">
+          <label for="monumentSearch" class="font-semibold">
+            ${t("atlas.searchLabel")}
+          </label>
 
-  <div style="display:flex; gap:8px;">
-    <input
-      id="monumentSearch"
-      type="search"
-      placeholder="${t("atlas.searchPlaceholder")}"
-      autocomplete="off"
-      style="flex:1; min-width:0; padding:12px 14px;
-             border:1px solid var(--border); border-radius:10px;
-             background:transparent; color:inherit;"
-    />
-    <button
-      id="clearSearch"
-      type="button"
-      class="rounded-md border border-border px-3 py-2"
-      aria-label="${t("atlas.searchClear")}"
-    >✕</button>
-  </div>
+          <div class="atlas-search-row">
+            <input
+              id="monumentSearch"
+              class="atlas-search-input"
+              type="search"
+              placeholder="${t("atlas.searchPlaceholder")}"
+              autocomplete="off"
+              aria-controls="aimagGroups"
+            />
 
-  <p id="searchStatus" role="status" class="mt-2 text-sm text-muted-foreground"></p>
+            <button
+              id="clearSearch"
+              class="atlas-clear"
+              type="button"
+              aria-label="${t("atlas.searchClear")}"
+            >✕</button>
+          </div>
 
-  <div
-    id="searchResults"
-    style="display:grid; gap:8px; max-height:360px; overflow-y:auto;"
-  ></div>
-</section>
+          <p
+            id="searchStatus"
+            class="atlas-status text-muted-foreground"
+            role="status"
+          ></p>
+        </div>
 
-    <div class="atlas-wrap relative overflow-hidden rounded-xl border border-border bg-card/40 p-4">
-      <div id="atlasSvg" class="h-[calc(100vh-14rem)] min-h-[320px]"></div>
-      <div id="atlasTip" class="pointer-events-none absolute z-20 hidden rounded-md border border-border bg-card px-2.5 py-1 text-xs shadow-md"></div>
-    </div>`;
+        <div id="aimagGroups" class="atlas-groups"></div>
+      </aside>
+
+      <div
+        class="atlas-wrap relative overflow-hidden rounded-xl
+               border border-border bg-card/40 p-4"
+      >
+        <div id="atlasSvg" class="atlas-map-box"></div>
+
+        <div
+          id="atlasTip"
+          class="pointer-events-none absolute z-20 hidden rounded-md
+                 border border-border bg-card px-2.5 py-1
+                 text-xs shadow-md"
+        ></div>
+      </div>
+    </div>
+  `;
+
   root.append(page);
 
-  const [aimags, monuments, svgText] = await Promise.all([getAimags(), getMonuments(), fetch("img/map.svg").then((r) => r.text())]);
+  const [aimags, monuments, svgText] = await Promise.all([
+    getAimags(),
+    getMonuments(),
+    fetch("img/map.svg").then((response) => {
+      if (!response.ok) {
+        throw new Error(`Map could not be loaded: ${response.status}`);
+      }
 
+      return response.text();
+    }),
+  ]);
+
+  const box = page.querySelector("#atlasSvg");
+  box.innerHTML = svgText;
+
+  const svg = box.querySelector("svg");
+
+  if (!svg) {
+    throw new Error("Map SVG is missing.");
+  }
+
+  svg.removeAttribute("width");
+  svg.removeAttribute("height");
+  svg.setAttribute("class", "h-full w-full");
+  svg.querySelector("#label_points")?.remove();
+
+  const wrap = page.querySelector(".atlas-wrap");
+  const tip = page.querySelector("#atlasTip");
   const searchInput = page.querySelector("#monumentSearch");
-  const searchResults = page.querySelector("#searchResults");
-  const searchStatus = page.querySelector("#searchStatus");
   const clearSearch = page.querySelector("#clearSearch");
+  const searchStatus = page.querySelector("#searchStatus");
+  const groupsContainer = page.querySelector("#aimagGroups");
 
-  const aimagById = new Map(aimags.map((a) => [a.id, a]));
+  const aimagById = new Map(aimags.map((aimag) => [aimag.id, aimag]));
+  const monumentsByAimag = new Map();
+  const pathsById = new Map();
 
-  // Том, жижиг үсэг болон зураасны ялгааг арилгана.
+  monuments.forEach((monument) => {
+    if (!monumentsByAimag.has(monument.aimagId)) {
+      monumentsByAimag.set(monument.aimagId, []);
+    }
+
+    monumentsByAimag.get(monument.aimagId).push(monument);
+  });
+
   const normalize = (value) =>
     String(value ?? "")
       .normalize("NFKC")
@@ -78,127 +295,182 @@ export async function atlasPage(root) {
 
   const multilingualText = (value) => (typeof value === "string" ? value : Object.values(value ?? {}).join(" "));
 
-  const searchIndex = monuments.map((monument) => {
-    const aimag = aimagById.get(monument.aimagId);
+  const searchTextByMonument = new Map(
+    monuments.map((monument) => {
+      const aimag = aimagById.get(monument.aimagId);
 
-    return {
-      monument,
-      aimag,
-      text: normalize([multilingualText(monument.name), multilingualText(monument.sum), multilingualText(aimag?.name)].join(" ")),
-    };
-  });
+      const text = normalize([multilingualText(monument.name), multilingualText(monument.sum), multilingualText(aimag?.name)].join(" "));
 
-  function renderSearch() {
-    const query = normalize(searchInput.value);
-    searchResults.replaceChildren();
-    searchStatus.textContent = "";
+      return [monument, text];
+    }),
+  );
 
-    if (!query) return;
+  const groupElements = new Map();
+  let lastQuery = "";
 
-    const words = query.split(" ");
-    const matches = searchIndex.filter(({ text }) => words.every((word) => text.includes(word)));
-
-    searchStatus.textContent = matches.length ? t("atlas.searchResults", { n: matches.length }) : t("atlas.searchEmpty");
-
-    matches.forEach(({ monument, aimag }) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "rounded-lg border border-border bg-card p-3 text-left";
-      button.style.cssText = "display:flex; align-items:center; gap:12px; width:100%;";
-
-      if (monument.image) {
-        const image = document.createElement("img");
-        image.src = monument.image;
-        image.alt = "";
-        image.loading = "lazy";
-        image.style.cssText = "width:64px; height:52px; object-fit:cover; border-radius:8px;";
-        image.addEventListener("error", () => image.remove(), { once: true });
-        button.append(image);
-      }
-
-      const info = document.createElement("div");
-
-      const title = document.createElement("strong");
-      title.textContent = tr(monument.name);
-
-      const location = document.createElement("div");
-      location.className = "text-sm text-muted-foreground";
-      location.textContent = [aimag ? tr(aimag.name) : "", tr(monument.sum)].filter(Boolean).join(" · ");
-
-      info.append(title, location);
-      button.append(info);
-
-      if (aimag) {
-        button.addEventListener("click", () => {
-          const map = page.querySelector("#atlasSvg svg");
-
-          map?.querySelectorAll(".aimag.is-selected").forEach((path) => {
-            path.classList.remove("is-selected");
-          });
-
-          const selected = Array.from(map?.querySelectorAll("#features path") ?? []).find((path) => path.id === aimag.id);
-
-          selected?.classList.add("is-selected");
-
-          // Одоо ашиглаж буй цонхонд зөвхөн сонгосон дурсгалыг харуулна.
-          openAimagModal(aimag, [monument]);
-        });
-      } else {
-        button.disabled = true;
-      }
-
-      searchResults.append(button);
+  function selectAimag(aimagId) {
+    svg.querySelectorAll(".aimag.is-selected").forEach((path) => {
+      path.classList.remove("is-selected");
     });
+
+    pathsById.get(aimagId)?.classList.add("is-selected");
   }
 
-  searchInput.addEventListener("input", renderSearch);
+  function createMonumentButton(monument, aimag) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "atlas-monument";
+
+    if (monument.image) {
+      const image = document.createElement("img");
+      image.src = monument.image;
+      image.alt = "";
+      image.loading = "lazy";
+
+      image.addEventListener("error", () => image.remove(), {
+        once: true,
+      });
+
+      button.append(image);
+    }
+
+    const info = document.createElement("span");
+
+    const name = document.createElement("span");
+    name.className = "atlas-monument-name";
+    name.textContent = tr(monument.name);
+
+    const location = document.createElement("span");
+    location.className = "atlas-monument-location text-muted-foreground";
+    location.textContent = tr(monument.sum);
+
+    info.append(name, location);
+    button.append(info);
+
+    button.addEventListener("click", () => {
+      selectAimag(aimag.id);
+      openAimagModal(aimag, [monument]);
+    });
+
+    return button;
+  }
+
+  function renderGroups() {
+    const query = normalize(searchInput.value);
+    const words = query ? query.split(" ") : [];
+    const previousOpen = new Set([...groupElements.entries()].filter(([, details]) => details.open).map(([id]) => id));
+
+    groupsContainer.replaceChildren();
+    groupElements.clear();
+
+    const matchedAimagIds = new Set();
+    let resultCount = 0;
+
+    aimags.forEach((aimag) => {
+      const allMonuments = monumentsByAimag.get(aimag.id) ?? [];
+
+      const matches = allMonuments.filter((monument) => {
+        const text = searchTextByMonument.get(monument) ?? "";
+        return words.every((word) => text.includes(word));
+      });
+
+      // Мэдээлэлгүй аймгууд газрын зураг дээрээ үлдэнэ.
+      if (!matches.length) return;
+
+      resultCount += matches.length;
+      matchedAimagIds.add(aimag.id);
+
+      const details = document.createElement("details");
+      details.className = "atlas-group";
+
+      details.open = query ? query !== lastQuery || previousOpen.has(aimag.id) : !lastQuery && previousOpen.has(aimag.id);
+
+      const summary = document.createElement("summary");
+
+      const aimagName = document.createElement("span");
+      aimagName.textContent = tr(aimag.name);
+
+      const count = document.createElement("span");
+      count.className = "atlas-group-count";
+      count.textContent = `· ${matches.length}`;
+
+      summary.append(aimagName, count);
+      details.append(summary);
+
+      details.addEventListener("toggle", () => {
+        if (details.open) selectAimag(aimag.id);
+      });
+
+      matches.forEach((monument) => {
+        details.append(createMonumentButton(monument, aimag));
+      });
+
+      groupElements.set(aimag.id, details);
+      groupsContainer.append(details);
+    });
+
+    searchStatus.textContent = resultCount ? t("atlas.searchResults", { n: resultCount }) : t("atlas.searchEmpty");
+
+    pathsById.forEach((path, aimagId) => {
+      path.classList.toggle("search-match", Boolean(query) && matchedAimagIds.has(aimagId));
+    });
+
+    lastQuery = query;
+  }
+
+  svg.querySelectorAll("#features path").forEach((path) => {
+    const aimag = aimagById.get(path.id);
+    if (!aimag) return;
+
+    pathsById.set(aimag.id, path);
+
+    const aimagMonuments = monumentsByAimag.get(aimag.id) ?? [];
+    const count = aimagMonuments.length;
+
+    path.classList.add("aimag");
+
+    if (count) {
+      path.classList.add("has-data");
+    }
+
+    path.addEventListener("mousemove", (event) => {
+      const rect = wrap.getBoundingClientRect();
+
+      tip.textContent = t("atlas.tip", {
+        name: tr(aimag.name),
+        n: count,
+      });
+
+      tip.style.left = `${event.clientX - rect.left + 12}px`;
+      tip.style.top = `${event.clientY - rect.top + 12}px`;
+      tip.classList.remove("hidden");
+    });
+
+    path.addEventListener("mouseleave", () => {
+      tip.classList.add("hidden");
+    });
+
+    path.addEventListener("click", () => {
+      selectAimag(aimag.id);
+
+      const group = groupElements.get(aimag.id);
+
+      if (group) {
+        group.open = true;
+      }
+
+      tip.classList.add("hidden");
+      openAimagModal(aimag, aimagMonuments);
+    });
+  });
+
+  searchInput.addEventListener("input", renderGroups);
 
   clearSearch.addEventListener("click", () => {
     searchInput.value = "";
-    renderSearch();
+    renderGroups();
     searchInput.focus();
   });
 
-  const box = page.querySelector("#atlasSvg");
-  box.innerHTML = svgText;
-  const svg = box.querySelector("svg");
-  svg.removeAttribute("width");
-  svg.removeAttribute("height");
-  svg.setAttribute("class", "h-full w-full");
-  svg.querySelector("#label_points")?.remove();
-
-  const wrap = page.querySelector(".atlas-wrap");
-  const tip = page.querySelector("#atlasTip");
-
-  const countBy = {};
-  monuments.forEach((m) => {
-    countBy[m.aimagId] = (countBy[m.aimagId] || 0) + 1;
-  });
-
-  svg.querySelectorAll("#features path").forEach((path) => {
-    const aimag = aimags.find((a) => a.id === path.id);
-    if (!aimag) return;
-    const count = countBy[aimag.id] || 0;
-
-    path.classList.add("aimag");
-    if (count) path.classList.add("has-data");
-
-    path.addEventListener("mousemove", (e) => {
-      const r = wrap.getBoundingClientRect();
-      tip.textContent = t("atlas.tip", { name: tr(aimag.name), n: count });
-      tip.style.left = `${e.clientX - r.left + 12}px`;
-      tip.style.top = `${e.clientY - r.top + 12}px`;
-      tip.classList.remove("hidden");
-    });
-    path.addEventListener("mouseleave", () => tip.classList.add("hidden"));
-
-    path.addEventListener("click", () => {
-      svg.querySelectorAll(".aimag.is-selected").forEach((p) => p.classList.remove("is-selected"));
-      path.classList.add("is-selected");
-      openAimagModal(
-        aimag,
-        monuments.filter((m) => m.aimagId === aimag.id),
-      );
-    });
-  });
+  renderGroups();
 }

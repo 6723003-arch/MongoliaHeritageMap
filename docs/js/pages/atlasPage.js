@@ -23,14 +23,14 @@ export async function atlasPage(root) {
 
     <section class="mb-4 rounded-xl border border-border bg-card/40 p-4">
   <label for="monumentSearch" class="mb-2 block text-sm font-semibold">
-    Дурсгал хайх / Search / 검색
+    ${t("atlas.searchLabel")}
   </label>
 
   <div style="display:flex; gap:8px;">
     <input
       id="monumentSearch"
       type="search"
-      placeholder="Дурсгалын нэр, аймаг, сум…"
+      placeholder="${t("atlas.searchPlaceholder")}"
       autocomplete="off"
       style="flex:1; min-width:0; padding:12px 14px;
              border:1px solid var(--border); border-radius:10px;
@@ -40,7 +40,7 @@ export async function atlasPage(root) {
       id="clearSearch"
       type="button"
       class="rounded-md border border-border px-3 py-2"
-      aria-label="Хайлтыг цэвэрлэх / Clear search / 검색 지우기"
+      aria-label="${t("atlas.searchClear")}"
     >✕</button>
   </div>
 
@@ -98,9 +98,7 @@ export async function atlasPage(root) {
     const words = query.split(" ");
     const matches = searchIndex.filter(({ text }) => words.every((word) => text.includes(word)));
 
-    searchStatus.textContent = matches.length
-      ? `${matches.length} үр дүн / results / 검색 결과`
-      : "Илэрц олдсонгүй / No results / 검색 결과 없음";
+    searchStatus.textContent = matches.length ? t("atlas.searchResults", { n: matches.length }) : t("atlas.searchEmpty");
 
     matches.forEach(({ monument, aimag }) => {
       const button = document.createElement("button");

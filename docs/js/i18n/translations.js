@@ -45,6 +45,12 @@ export const translations = {
     "atlas.legendSoon": "Удахгүй",
     "atlas.tip": "{name} · {n} дурсгал",
 
+    "atlas.searchLabel": "Дурсгал хайх",
+    "atlas.searchPlaceholder": "Дурсгалын нэр, аймаг, сумаар хайх…",
+    "atlas.searchClear": "Хайлтыг цэвэрлэх",
+    "atlas.searchResults": "{n} илэрц олдлоо",
+    "atlas.searchEmpty": "Илэрц олдсонгүй",
+
     "dlg.count": "{n} түүхэн дурсгал",
     "dlg.empty": "Энэ аймгийн дурсгалын мэдээлэл удахгүй нэмэгдэнэ.",
     "dlg.selected": "{n} сонгосон",
@@ -106,6 +112,12 @@ export const translations = {
     "atlas.legendSoon": "Coming soon",
     "atlas.tip": "{name} · {n} monuments",
 
+    "atlas.searchLabel": "Search monuments",
+    "atlas.searchPlaceholder": "Search by monument, province or district…",
+    "atlas.searchClear": "Clear search",
+    "atlas.searchResults": "{n} results found",
+    "atlas.searchEmpty": "No results found",
+
     "dlg.count": "{n} historical monuments",
     "dlg.empty": "Monument information for this aimag will be added soon.",
     "dlg.selected": "{n} selected",
@@ -166,6 +178,12 @@ export const translations = {
     "atlas.legendData": "정보 있음",
     "atlas.legendSoon": "준비 중",
     "atlas.tip": "{name} · 유적 {n}곳",
+
+    "atlas.searchLabel": "유적 검색",
+    "atlas.searchPlaceholder": "유적명, 지역으로 검색…",
+    "atlas.searchClear": "검색 지우기",
+    "atlas.searchResults": "검색 결과 {n}개",
+    "atlas.searchEmpty": "검색 결과가 없습니다",
 
     "dlg.count": "역사 유적 {n}곳",
     "dlg.empty": "이 아이막의 유적 정보는 곧 추가될 예정입니다.",

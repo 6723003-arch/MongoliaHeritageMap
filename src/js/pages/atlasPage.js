@@ -318,6 +318,18 @@ export async function atlasPage(root) {
   const searchStatus = page.querySelector("#searchStatus");
   const groupsContainer = page.querySelector("#aimagGroups");
 
+  groupsContainer.style.setProperty("scrollbar-width", "none", "important");
+
+  const scrollbarStyle = document.createElement("style");
+  scrollbarStyle.textContent = `
+  #aimagGroups::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+`;
+  page.append(scrollbarStyle);
+
   const aimagById = new Map(aimags.map((aimag) => [aimag.id, aimag]));
   const monumentsByAimag = new Map();
   const pathsById = new Map();

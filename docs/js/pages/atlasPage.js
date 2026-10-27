@@ -158,38 +158,37 @@ export async function atlasPage(root) {
           min-height: 300px;
         }
       }
-        /* Компьютер: хоёр хэсгийн өндөр ижил */
-@media (min-width: 851px) {
+
+  @media (min-width: 851px) {
   .atlas-layout {
-    height: max(460px, calc(100vh - 15rem));
-    align-items: stretch;
+    height: auto;
+    align-items: start;
   }
 
-  .atlas-sidebar {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  .atlas-layout > .atlas-sidebar,
+  .atlas-layout > .atlas-wrap {
+    box-sizing: border-box;
+    height: max(460px, calc(100vh - 15rem));
     min-height: 0;
   }
 
-  .atlas-search-header {
-    flex-shrink: 0;
+  .atlas-layout > .atlas-sidebar {
+    display: flex;
+    flex-direction: column;
   }
 
-  .atlas-groups {
-    flex: 1;
+  .atlas-search-header {
+    flex: 0 0 auto;
+  }
+
+  .atlas-sidebar > .atlas-groups {
+    flex: 1 1 0;
     min-height: 0;
     max-height: none;
     overflow-y: auto;
   }
 
-  .atlas-layout > .atlas-wrap {
-    box-sizing: border-box;
-    height: 100%;
-    min-height: 0;
-  }
-
-  .atlas-map-box {
+  .atlas-wrap > .atlas-map-box {
     height: 100%;
     min-height: 0;
   }

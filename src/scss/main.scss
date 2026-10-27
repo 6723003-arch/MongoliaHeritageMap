@@ -1,0 +1,103 @@
+@use "bulma/bulma";
+
+$navy: #0f134c;
+
+.hero-mongolia {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  // зураг байхгүй бол градиент харагдана
+  background:
+    url("../img/mongolia-hero.jpg") center / cover no-repeat,
+    linear-gradient(135deg, #0f2a5c, #7a1f1f);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 20, 48, 0.88), rgba(8, 20, 48, 0.35));
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2rem 1.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  strong {
+    display: block;
+    font-size: 2rem;
+  }
+}
+.auth-box {
+  border-radius: 16px;
+}
+
+#map {
+  height: calc(100vh - 3.25rem);
+}
+
+$bg: #0b1230; // суурь
+$base: #243a73; // мэдээлэлгүй аймаг
+$data: #c8553d; // дурсгалтай аймаг
+$hover: #f2b134; // hover / сонгосон
+
+.atlas-page {
+  min-height: calc(100vh - 3.25rem);
+  padding: 2rem 1rem;
+  background: radial-gradient(circle at 50% 0%, #17235a, $bg 70%);
+}
+.atlas-wrap {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+#atlasSvg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.aimag {
+  fill: $base;
+  stroke: $bg;
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill 0.2s;
+  &.has-data {
+    fill: $data;
+  }
+  &:hover {
+    fill: #35509a;
+  }
+  &.has-data:hover,
+  &.is-selected {
+    fill: $hover;
+  }
+}
+
+.atlas-tip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.monument-modal {
+  width: min(920px, 95vw);
+}
+.monument-row {
+  display: block;
+  padding: 0.4rem 0;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "mongoliaheritagemap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server src",
+    "css": "npx @tailwindcss/cli -i src/styles/input.css -o src/css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bulma": "^1.0.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "live-server": "^1.2.2",
+    "sass": "^1.106.1",
+    "tailwindcss": "^4.3.3"
+  }
+}

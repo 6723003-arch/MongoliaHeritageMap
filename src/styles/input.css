@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "./landing.css";
+
+:root,
+html[data-theme="dark"] {
+  --background: #0a0f24;
+  --foreground: #f4f6fb;
+  --card: #0f1630;
+  --card-foreground: #f4f6fb;
+  --primary: #f2b134;
+  --primary-foreground: #1a1204;
+  --secondary: #1b2548;
+  --secondary-foreground: #f4f6fb;
+  --muted: #1b2548;
+  --muted-foreground: #9aa6c7;
+  --accent: #232f5c;
+  --accent-foreground: #f4f6fb;
+  --destructive: #ef4444;
+  --border: #26315e;
+  --input: #2b376b;
+  --ring: #f2b134;
+  --aimag: #243a73;
+  --aimag-data: #c8553d;
+  --aimag-hover: #35509a;
+}
+
+html[data-theme="light"] {
+  --background: #f4f6fb;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --primary: #d99a1b;
+  --primary-foreground: #1a1204;
+  --secondary: #e8ecf5;
+  --secondary-foreground: #0f172a;
+  --muted: #e8ecf5;
+  --muted-foreground: #5b6b86;
+  --accent: #e3e9f6;
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --border: #d5dcec;
+  --input: #cdd6ea;
+  --ring: #d99a1b;
+  --aimag: #b9c8ea;
+  --aimag-data: #e0674b;
+  --aimag-hover: #9fb2de;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: "Inter", "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.aimag {
+  fill: var(--aimag);
+  stroke: var(--background);
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill 0.2s;
+}
+.aimag.has-data {
+  fill: var(--aimag-data);
+}
+.aimag:hover {
+  fill: var(--aimag-hover);
+}
+.aimag.has-data:hover,
+.aimag.is-selected {
+  fill: var(--primary);
+}
+#points {
+  display: none;
+}

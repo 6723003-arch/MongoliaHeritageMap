@@ -189,7 +189,7 @@
   },
   {
     "id": 12,
-    "aimagId": "MN067",
+    "aimagId": "MN041",
     "category": "monument",
     "sum": { "mn": "Бүрэнтогтох", "en": "Burentogtokh", "ko": "부렌토그토흐" },
     "name": { "mn": "Уушгийн өврийн буган чулуун хөшөө", "en": "Uushigiin Uvur Deer Stones", "ko": "우시긴 우부르 사슴돌 유적" },
@@ -221,7 +221,7 @@
   },
   {
     "id": 14,
-    "aimagId": "MN039",
+    "aimagId": "MN067",
     "category": "ruins",
     "sum": { "mn": "Дашинчилэн", "en": "Dashinchilen", "ko": "다신칠렌" },
     "name": { "mn": "Цогт тайжийн Цагаан байшин", "en": "Tsogt Taij's White Palace", "ko": "초그트 타이지의 백궁 유적" },
@@ -237,7 +237,7 @@
   },
   {
     "id": 15,
-    "aimagId": "MN053",
+    "aimagId": "MN039",
     "category": "monastery",
     "sum": { "mn": "Өмнөдэлгэр", "en": "Umnudelger", "ko": "움누델게르" },
     "name": { "mn": "Балдан Бэрээвэн хийд", "en": "Baldan Bereeven Monastery", "ko": "발단 베레벤 사원" },

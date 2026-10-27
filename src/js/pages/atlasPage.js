@@ -193,6 +193,14 @@ export async function atlasPage(root) {
     min-height: 0;
   }
 }
+  .atlas-groups {
+  scrollbar-width: none;
+}
+
+.atlas-groups::-webkit-scrollbar {
+  display: none;
+}
+
     </style>
 
     <div class="mb-4 flex flex-wrap items-end justify-between gap-3">

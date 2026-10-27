@@ -44,7 +44,7 @@
     "lng": 105.08,
     "image": "img/monuments/amarbayasgalant.jpg",
     "short": {
-      "mn": "Дэлгэрийн Богд Занабазарын хүндэтгэлд зориулан 1727–1736 онд барьсан хийд.",
+      "mn": "Өндөр гэгээн Занабазарын хүндэтгэлд зориулан 1727–1736 онд барьсан хийд.",
       "en": "Monastery built in 1727–1736 in honour of Zanabazar, the first Bogd Gegen.",
       "ko": "초대 복드 게겐 자나바자르를 기리기 위해 1727~1736년에 지은 사원입니다."
     }
@@ -81,6 +81,190 @@
       "mn": "1904–1908 онд баригдсан, одоо музей болсон сүмийн цогцолбор.",
       "en": "Temple complex built in 1904–1908, now a museum.",
       "ko": "1904~1908년에 지어졌으며 현재는 박물관으로 쓰이는 사원 단지입니다."
+    }
+  },
+  {
+    "id": 6,
+    "aimagId": "MN055",
+    "category": "monastery",
+    "sum": { "mn": "Бат-Өлзий", "en": "Bat-Ulzii", "ko": "바트울지" },
+    "name": { "mn": "Төвхөн хийд", "en": "Tuvkhun Monastery", "ko": "투브흔 사원" },
+    "period": { "mn": "XVII зуун", "en": "17th century", "ko": "17세기" },
+    "lat": 47.013,
+    "lng": 102.25,
+    "image": "img/monuments/tuvkhun.jpg",
+    "short": {
+      "mn": "Өндөр гэгээн Занабазарын бясалгал, уран бүтээлтэй холбоотой уулын хийд. Орхоны хөндийн Дэлхийн өвийн бүрэлдэхүүнд багтдаг.",
+      "en": "A mountain monastery associated with Zanabazar's meditation and artistic work. Part of the Orkhon Valley World Heritage site.",
+      "ko": "자나바자르의 명상과 예술 활동에 관련된 산중 사원으로, 오르혼 계곡 세계유산의 일부입니다."
+    }
+  },
+  {
+    "id": 7,
+    "aimagId": "MN073",
+    "category": "ruins",
+    "sum": { "mn": "Хотонт", "en": "Khotont", "ko": "호톤트" },
+    "name": { "mn": "Хар балгас", "en": "KhAR Balgas (Ordu-Baliq)", "ko": "하르 발가스 유적" },
+    "period": { "mn": "VIII–IX зуун", "en": "8th–9th centuries", "ko": "8~9세기" },
+    "lat": 47.431,
+    "lng": 102.659,
+    "image": "img/monuments/khar-balgas.jpg",
+    "short": {
+      "mn": "Уйгурын хаант улсын нийслэл Орду-Балык хотын туурь. Хэрэм, ордны үлдэгдэл бүхий Орхоны хөндийн чухал дурсгал.",
+      "en": "Ruins of Ordu-Baliq, the capital of the Uyghur Khaganate, with remains of fortifications and a palace.",
+      "ko": "위구르 카간국의 수도 오르두 발리크 유적으로, 성벽과 궁전의 흔적이 남아 있습니다."
+    }
+  },
+  {
+    "id": 8,
+    "aimagId": "MN073",
+    "category": "monument",
+    "sum": { "mn": "Хашаат", "en": "Khashaat", "ko": "하샤트" },
+    "name": { "mn": "Хөшөө Цайдамын дурсгал", "en": "Khushuu Tsaidam Memorial Complex", "ko": "호쇼 차이담 기념 유적" },
+    "period": { "mn": "VIII зуун", "en": "8th century", "ko": "8세기" },
+    "lat": 47.558,
+    "lng": 102.834,
+    "image": "img/monuments/khushuu-tsaidam.jpg",
+    "short": {
+      "mn": "Түрэгийн Билгэ хаан, Күлтегинд зориулсан гэрэлт хөшөө, эртний түрэг бичээс бүхий тахилгын цогцолбор.",
+      "en": "Memorial complexes dedicated to Bilge Khagan and Kultegin, renowned for their Old Turkic inscriptions.",
+      "ko": "빌게 카간과 퀼 테긴을 기리는 기념 유적으로, 고대 튀르크 문자 비문으로 유명합니다."
+    }
+  },
+  {
+    "id": 9,
+    "aimagId": "MN071",
+    "category": "petroglyph",
+    "sum": { "mn": "Улаанхус", "en": "Ulaankhus", "ko": "울란후스" },
+    "name": {
+      "mn": "Цагаан салаа–Бага Ойгорын хадны зураг",
+      "en": "Tsagaan Salaa–Baga Oigor Petroglyphs",
+      "ko": "차강 살라–바가 오이고르 암각화"
+    },
+    "period": { "mn": "Балар эртнээс түрэгийн үе хүртэл", "en": "Prehistory to the Turkic period", "ko": "선사시대~튀르크 시대" },
+    "lat": 49.334,
+    "lng": 88.376,
+    "image": "img/monuments/tsagaan-salaa.jpg",
+    "short": {
+      "mn": "Ан амьтан, ан агнуур, эртний хүмүүсийн ахуйг дүрсэлсэн хадны зургийн цогцолбор. Монгол Алтайн Дэлхийн өвийн нэг хэсэг.",
+      "en": "Rock art depicting animals, hunting and ancient life. Part of the UNESCO-listed Petroglyphic Complexes of the Mongolian Altai.",
+      "ko": "동물과 사냥, 고대인의 생활을 묘사한 암각화로, 몽골 알타이 세계유산의 일부입니다."
+    }
+  },
+  {
+    "id": 10,
+    "aimagId": "MN071",
+    "category": "petroglyph",
+    "sum": { "mn": "Цэнгэл", "en": "Tsengel", "ko": "쳉겔" },
+    "name": {
+      "mn": "Шивээт хайрханы хадны зураг",
+      "en": "Upper Tsagaan Gol Petroglyphs (Shiveet Khairkhan)",
+      "ko": "시베트 하이르항 암각화"
+    },
+    "period": { "mn": "Балар эртнээс түрэгийн үе хүртэл", "en": "Prehistory to the Turkic period", "ko": "선사시대~튀르크 시대" },
+    "lat": 49.1,
+    "lng": 88.3,
+    "image": "img/monuments/shiveet-khairkhan.jpg",
+    "short": {
+      "mn": "Цагаан голын эх орчмын олон үеийн хадны зургийн цогцолбор. Эртний нүүдэлчдийн ахуй, шүтлэгийг илэрхийлдэг.",
+      "en": "A multi-period rock art complex in the upper Tsagaan Gol valley, illustrating the life and beliefs of ancient nomads.",
+      "ko": "차강골 상류에 있는 여러 시대의 암각화 유적으로, 고대 유목민의 생활과 신앙을 보여 줍니다."
+    }
+  },
+  {
+    "id": 11,
+    "aimagId": "MN071",
+    "category": "petroglyph",
+    "sum": { "mn": "Цэнгэл", "en": "Tsengel", "ko": "쳉겔" },
+    "name": { "mn": "Арал толгойн хадны зураг", "en": "Aral Tolgoi Petroglyphs", "ko": "아랄 톨고이 암각화" },
+    "period": { "mn": "Балар эртний үе", "en": "Prehistoric period", "ko": "선사시대" },
+    "lat": 48.7,
+    "lng": 87.7,
+    "image": "img/monuments/aral-tolgoi.jpg",
+    "short": {
+      "mn": "Эртний амьтад, хүний үйл ажиллагааг дүрсэлсэн хадны зургийн дурсгал. Монгол Алтайн хадны зургийн Дэлхийн өвийн бүрэлдэхүүнд багтдаг.",
+      "en": "Prehistoric rock art depicting animals and human activities. Part of the Mongolian Altai World Heritage property.",
+      "ko": "동물과 인간의 활동을 묘사한 선사시대 암각화로, 몽골 알타이 세계유산의 일부입니다."
+    }
+  },
+  {
+    "id": 12,
+    "aimagId": "MN067",
+    "category": "monument",
+    "sum": { "mn": "Бүрэнтогтох", "en": "Burentogtokh", "ko": "부렌토그토흐" },
+    "name": { "mn": "Уушгийн өврийн буган чулуун хөшөө", "en": "Uushigiin Uvur Deer Stones", "ko": "우시긴 우부르 사슴돌 유적" },
+    "period": { "mn": "Хүрэл зэвсгийн үе", "en": "Bronze Age", "ko": "청동기 시대" },
+    "lat": 49.68,
+    "lng": 99.85,
+    "image": "img/monuments/uushigiin-uvur.jpg",
+    "short": {
+      "mn": "Буган чулуун хөшөө, хиргисүүр, тахилгын байгууламж бүхий хүрэл зэвсгийн үеийн цогцолбор.",
+      "en": "A Bronze Age complex featuring deer stones, burial mounds and ceremonial structures.",
+      "ko": "사슴돌과 돌무덤, 의례 시설로 이루어진 청동기 시대 유적입니다."
+    }
+  },
+  {
+    "id": 13,
+    "aimagId": "MN073",
+    "category": "monument",
+    "sum": { "mn": "Ихтамир", "en": "Ikh-Tamir", "ko": "이흐타미르" },
+    "name": { "mn": "Тайхар чулуу", "en": "Taikhar Rock", "ko": "타이하르 바위" },
+    "period": { "mn": "Олон үеийн бичээс", "en": "Inscriptions from multiple periods", "ko": "여러 시대의 명문" },
+    "lat": 47.6,
+    "lng": 101.2,
+    "image": "img/monuments/taikhar.jpg",
+    "short": {
+      "mn": "Тамир голын хөндийд орших, олон хэл бичгийн дурсгал хадгалсан том боржин чулуу. Нутгийн домог, түүхтэй холбоотой.",
+      "en": "A large granite rock in the Tamir River valley bearing inscriptions in several scripts and associated with local legends.",
+      "ko": "타미르강 계곡에 있는 거대한 화강암 바위로, 여러 문자의 명문과 지역 전설을 간직하고 있습니다."
+    }
+  },
+  {
+    "id": 14,
+    "aimagId": "MN039",
+    "category": "ruins",
+    "sum": { "mn": "Дашинчилэн", "en": "Dashinchilen", "ko": "다신칠렌" },
+    "name": { "mn": "Цогт тайжийн Цагаан байшин", "en": "Tsogt Taij's White Palace", "ko": "초그트 타이지의 백궁 유적" },
+    "period": { "mn": "XVII зуун", "en": "17th century", "ko": "17세기" },
+    "lat": 47.9,
+    "lng": 104.0,
+    "image": "img/monuments/tsogt-white-palace.jpg",
+    "short": {
+      "mn": "Цогт тайжтай холбоотой XVII зууны барилгын туурь. Ойролцоох гэрэлт хөшөө нь тухайн үеийн түүхийг өгүүлдэг.",
+      "en": "Seventeenth-century architectural ruins associated with Tsogt Taij, accompanied by a historical inscribed stele.",
+      "ko": "초그트 타이지와 관련된 17세기 건축 유적으로, 당시의 역사를 전하는 비석이 있습니다."
+    }
+  },
+  {
+    "id": 15,
+    "aimagId": "MN053",
+    "category": "monastery",
+    "sum": { "mn": "Өмнөдэлгэр", "en": "Umnudelger", "ko": "움누델게르" },
+    "name": { "mn": "Балдан Бэрээвэн хийд", "en": "Baldan Bereeven Monastery", "ko": "발단 베레벤 사원" },
+    "period": { "mn": "XVIII зуун", "en": "18th century", "ko": "18세기" },
+    "lat": 48.767,
+    "lng": 109.45,
+    "image": "img/monuments/baldan-bereeven.jpg",
+    "short": {
+      "mn": "Уулсын дунд орших буддын хийдийн цогцолбор. Хийдийн барилга, хаданд сийлсэн бурхад, бичээсээрээ онцлог.",
+      "en": "A Buddhist monastery set among mountains, known for its temple buildings, rock-carved Buddhist images and inscriptions.",
+      "ko": "산으로 둘러싸인 불교 사원으로, 사원 건축과 바위에 새긴 불상 및 명문이 특징입니다."
+    }
+  },
+  {
+    "id": 16,
+    "aimagId": "MN061",
+    "category": "ruins",
+    "sum": { "mn": "Цагаан-Овоо", "en": "Tsagaan-Ovoo", "ko": "차강오보" },
+    "name": { "mn": "Хэрлэн Барс хотын туурь, суварга", "en": "Kherlen Bars City Ruins and Pagoda", "ko": "헤를렌 바르스 도시 유적과 탑" },
+    "period": { "mn": "Киданы үе", "en": "Khitan period", "ko": "거란 시대" },
+    "lat": 47.8,
+    "lng": 113.3,
+    "image": "img/monuments/kherlen-bars.jpg",
+    "short": {
+      "mn": "Киданы үеийн хотын туурь, тоосгон суварга бүхий дурсгал. Монголын зүүн бүсийн эртний хот байгуулалтын түүхийг харуулдаг.",
+      "en": "Khitan-period city ruins with a brick pagoda, illustrating the history of urban settlement in eastern Mongolia.",
+      "ko": "거란 시대의 도시 유적과 벽돌 탑으로, 몽골 동부의 고대 도시 역사를 보여 줍니다."
     }
   }
 ]

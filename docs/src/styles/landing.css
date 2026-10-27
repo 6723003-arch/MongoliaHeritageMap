@@ -1,0 +1,714 @@
+/* ================= Нүүр хуудас ================= */
+
+.auth-page {
+  --background: #050812;
+  --card: rgba(15, 20, 35, 0.95);
+  --text: #f5f7fd;
+  --muted: #8d98ad;
+  --blue: #3f8cff;
+  --cyan: #36d9df;
+  --border: rgba(147, 170, 214, 0.18);
+
+  height: 100svh;
+  display: grid;
+  grid-template-rows: 64px minmax(0, 1fr); /* header + үлдсэн хэсэг */
+  overflow: hidden;
+  color: var(--text);
+  background: radial-gradient(circle at 77% 46%, rgba(37, 100, 183, 0.12), transparent 32%), var(--background);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 clamp(16px, 3vw, 40px);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--background) 82%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.auth-page .brand-mark {
+  width: auto;
+  height: 24px;
+  color: var(--cyan);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 10px rgba(54, 217, 223, 0.35));
+}
+
+/* ---------- Үндсэн хоёр багана ---------- */
+.auth-layout {
+  width: min(1320px, 100%);
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(400px, 0.96fr);
+}
+
+/* ---------- Зүүн тал: зураг ---------- */
+.visual-panel {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  color: #f5f7fd;
+  background: linear-gradient(135deg, #0f2a5c, #3a1218); /* зураг байхгүй үед */
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% center;
+  transform: scale(1.04);
+  animation: backgroundMovement 18s ease-in-out infinite alternate;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 25% 29%, rgba(43, 96, 177, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(3, 7, 17, 0.5) 0%, rgba(4, 8, 19, 0.18) 40%, rgba(4, 8, 19, 0.62) 75%, #050812 100%),
+    linear-gradient(90deg, rgba(4, 8, 18, 0.08), rgba(4, 8, 18, 0.12) 65%, #050812 100%);
+}
+
+.visual-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(16px, 3vh, 32px);
+  padding: clamp(24px, 6vh, 64px) clamp(28px, 5vw, 72px) clamp(24px, 5vh, 52px);
+}
+
+.hero-content {
+  width: min(560px, 100%);
+  animation: contentEntrance 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.eyebrow {
+  margin: 0 0 clamp(8px, 1.6vh, 14px);
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(30px, min(4vw, 6.2vh), 58px);
+  font-weight: 760;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.hero-content h1 span {
+  display: block;
+  color: var(--blue);
+  text-shadow: 0 0 30px rgba(63, 140, 255, 0.28);
+}
+
+.hero-description {
+  max-width: 470px;
+  margin: clamp(10px, 2vh, 20px) 0 0;
+  color: rgba(224, 230, 241, 0.75);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.feature-list {
+  width: min(480px, 100%);
+  display: grid;
+  gap: clamp(10px, 2vh, 18px);
+}
+
+.feature-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: 14px;
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(67, 143, 255, 0.23);
+  border-radius: 13px;
+  color: #65a1ff;
+  background: rgba(7, 22, 48, 0.7);
+  box-shadow: inset 0 0 20px rgba(63, 140, 255, 0.08);
+  backdrop-filter: blur(9px);
+}
+
+.feature-item:nth-child(3) .feature-icon {
+  color: var(--cyan);
+  border-color: rgba(54, 217, 223, 0.2);
+}
+
+.feature-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+}
+
+.feature-item strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.feature-item p {
+  margin: 0;
+  color: rgba(209, 218, 235, 0.6);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+/* ---------- Баруун тал: карт ---------- */
+.form-panel {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px clamp(24px, 5vw, 72px) 16px 22px;
+}
+
+.login-card {
+  width: min(100%, 480px);
+  padding: clamp(22px, 4vh, 40px) clamp(24px, 3.5vw, 42px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(18, 24, 41, 0.96), rgba(10, 15, 28, 0.97));
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+  animation: cardEntrance 0.75s 0.08s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.form-header {
+  margin-bottom: clamp(12px, 2.4vh, 24px);
+  text-align: center;
+}
+
+.form-header h2 {
+  margin: 0;
+  font-size: clamp(22px, 3.6vh, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.form-header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.field-group {
+  margin-top: clamp(10px, 1.9vh, 18px);
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #aeb7c8;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.input-container {
+  min-height: clamp(42px, 5.6vh, 50px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 11px;
+  padding: 0 14px;
+  border: 1px solid rgba(142, 163, 204, 0.2);
+  border-radius: 9px;
+  color: #6d7a92;
+  background: rgba(5, 9, 18, 0.35);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.input-container:focus-within {
+  border-color: rgba(54, 217, 223, 0.65);
+  background: rgba(8, 13, 25, 0.68);
+  box-shadow: 0 0 0 3px rgba(54, 217, 223, 0.08);
+}
+
+.input-container svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+}
+
+.input-container input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  background: transparent;
+  font-size: 13px;
+}
+
+.input-container input::placeholder {
+  color: #59657b;
+}
+
+/* Edge/Chrome-ийн өөрийн "нууц үг харуулах" нүдийг нууна (манайх л үлдэнэ) */
+.input-container input::-ms-reveal,
+.input-container input::-ms-clear {
+  display: none;
+}
+
+/* Input доторх цагаан хүрээг арилгана (хүрээ нь .input-container дээр харагдана) */
+.input-container input:focus,
+.input-container input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Хөтчийн автоматаар бөглөсөн үед өнгө эвдрэхгүй */
+.input-container input:-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.visibility-button {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  color: #73819a;
+  background: transparent;
+  cursor: pointer;
+}
+
+.visibility-button:hover {
+  color: #dce2ee;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.submit-button {
+  position: relative;
+  width: 100%;
+  min-height: clamp(44px, 6vh, 52px);
+  margin-top: clamp(16px, 3vh, 26px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 9px;
+  color: #ffffff;
+  background: linear-gradient(100deg, #287fe9, #27bfcb);
+  box-shadow: 0 15px 36px rgba(40, 130, 210, 0.24);
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.submit-button svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.34) 49%, transparent 72%);
+  transform: translateX(-125%);
+  transition: transform 0.75s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 19px 45px rgba(40, 130, 210, 0.32);
+}
+
+.submit-button:hover::before {
+  transform: translateX(125%);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.submit-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.signup-copy {
+  margin: clamp(12px, 2.4vh, 22px) 0 0;
+  color: #8b96a9;
+  font-size: 11px;
+  text-align: center;
+}
+
+.signup-copy button {
+  margin-left: 5px;
+  padding: 0;
+  border: 0;
+  color: #62a1ff;
+  background: transparent;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.signup-copy button:hover {
+  color: var(--cyan);
+}
+
+.status-message {
+  min-height: 16px;
+  margin: 8px 0 -6px;
+  color: #7f8ca2;
+  font-size: 10.5px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: 0.2s ease;
+}
+
+.status-message.status-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.auth-page button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ---------- Анимаци ---------- */
+@keyframes backgroundMovement {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(-8px, 3px, 0);
+  }
+}
+
+@keyframes contentEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- Намхан дэлгэц (жижиг laptop) ---------- */
+@media (max-height: 720px) {
+  .feature-item p {
+    display: none;
+  }
+  .hero-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-height: 560px) {
+  .auth-page {
+    overflow: auto;
+  }
+}
+
+/* ---------- Нарийн дэлгэц: баганууд дээд доогуур, гүйлгэнэ ---------- */
+@media (max-width: 840px) {
+  .auth-page {
+    height: auto;
+    min-height: 100svh;
+    grid-template-rows: 64px auto;
+    overflow: auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  .auth-layout {
+    width: min(100%, 610px);
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .visual-panel {
+    min-height: 240px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .visual-content {
+    height: auto;
+    min-height: 240px;
+    padding: 28px 22px 52px;
+  }
+
+  .feature-list {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(30px, 8.5vw, 44px);
+  }
+
+  .background-overlay {
+    background: linear-gradient(180deg, rgba(4, 8, 18, 0.26), rgba(4, 8, 18, 0.25) 47%, #050812 100%);
+  }
+
+  .form-panel {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin-top: -26px;
+    padding: 0 16px 24px;
+  }
+
+  .login-card {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-page *,
+  .auth-page *::before,
+  .auth-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ================= Light горим ================= */
+html[data-theme="light"] .auth-page {
+  --background: #f4f6fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #5b6b86;
+  --border: rgba(15, 23, 42, 0.12);
+  background: radial-gradient(circle at 77% 46%, rgba(63, 140, 255, 0.1), transparent 32%), #f4f6fb;
+}
+
+html[data-theme="light"] .auth-page .brand-mark {
+  color: #0e9aa7;
+  filter: none;
+}
+
+html[data-theme="light"] .background-overlay {
+  background: linear-gradient(180deg, rgba(3, 7, 17, 0.45) 0%, rgba(4, 8, 19, 0.15) 40%, rgba(4, 8, 19, 0.75) 100%);
+}
+
+html[data-theme="light"] .login-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .field-group label {
+  color: #475569;
+}
+
+html[data-theme="light"] .input-container {
+  color: #64748b;
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.15);
+}
+
+html[data-theme="light"] .input-container:focus-within {
+  background: #ffffff;
+  border-color: #27bfcb;
+  box-shadow: 0 0 0 3px rgba(39, 191, 203, 0.15);
+}
+
+html[data-theme="light"] .input-container input::placeholder {
+  color: #94a3b8;
+}
+html[data-theme="light"] .visibility-button {
+  color: #64748b;
+}
+html[data-theme="light"] .visibility-button:hover {
+  color: #0f172a;
+  background: rgba(15, 23, 42, 0.05);
+}
+html[data-theme="light"] .signup-copy {
+  color: #64748b;
+}
+html[data-theme="light"] .signup-copy button {
+  color: #2563eb;
+}
+html[data-theme="light"] .signup-copy button:hover {
+  color: #0891b2;
+}
+html[data-theme="light"] .status-message {
+  color: #64748b;
+}
+/* ================= Томруулсан хэмжээ (override) ================= */
+@media (min-width: 841px) {
+  /* Зүүн тал: голд төвлөрүүлж, зайг нөхнө */
+  .visual-content {
+    justify-content: center;
+    gap: clamp(32px, 8vh, 84px);
+    padding: clamp(24px, 5vh, 56px) clamp(24px, 4vw, 56px);
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(32px, min(3.8vw, 6.8vh), 64px);
+  }
+
+  .hero-description {
+    max-width: 520px;
+    margin-top: clamp(12px, 2.4vh, 22px);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .feature-list {
+    gap: clamp(12px, 2.4vh, 20px);
+  }
+
+  .feature-item {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .feature-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .feature-item strong {
+    font-size: 14px;
+  }
+  .feature-item p {
+    display: block;
+    font-size: 12.5px;
+  }
+
+  /* Баруун тал: карт */
+  .login-card {
+    width: min(100%, 540px);
+    padding: clamp(24px, 5vh, 46px) clamp(26px, 3.6vw, 48px);
+  }
+
+  .form-header {
+    margin-bottom: clamp(14px, 3vh, 28px);
+  }
+  .form-header h2 {
+    font-size: clamp(24px, 4.2vh, 34px);
+  }
+  .form-header p {
+    font-size: 14px;
+  }
+
+  .field-group {
+    margin-top: clamp(12px, 2.3vh, 20px);
+  }
+  .field-group label {
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+
+  .input-container {
+    min-height: clamp(46px, 6.6vh, 56px);
+  }
+  .input-container input {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    min-height: clamp(48px, 7vh, 58px);
+    margin-top: clamp(18px, 3.4vh, 30px);
+    font-size: 14px;
+  }
+
+  .signup-copy {
+    margin-top: clamp(14px, 2.8vh, 24px);
+    font-size: 12px;
+  }
+  .status-message {
+    font-size: 11px;
+  }
+}
+
+/* Маш намхан дэлгэц дээр л онцлогийн тайлбарыг нууна */
+@media (min-width: 841px) and (max-height: 600px) {
+  .feature-item p {
+    display: none;
+  }
+}
+/* ===== Өөрийн зургийн тохиргоо (шуурхай үүл, хээр) ===== */
+.background-image {
+  object-position: 50% 90%;
+} /* доод хэсгийн хээр, модыг харуулна */
+
+.background-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 8, 18, 0.72) 0%,
+      /* дээд: гарчиг уншигдана */ rgba(5, 8, 18, 0.12) 45%,
+      /* голд: үүл тод харагдана */ rgba(5, 8, 18, 0.12) 70%,
+      rgba(5, 8, 18, 0.55) 100% /* доод: онцлогууд уншигдана */
+    ),
+    linear-gradient(90deg, rgba(5, 8, 18, 0) 0%, rgba(5, 8, 18, 0.05) 70%, #050812 100%); /* баруун ирмэг картанд уусна */
+}

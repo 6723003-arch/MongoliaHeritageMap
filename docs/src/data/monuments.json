@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "aimagId": "MN055",
+    "category": "monastery",
+    "sum": { "mn": "Хархорин", "en": "Kharkhorin", "ko": "하르호린" },
+    "name": { "mn": "Эрдэнэ Зуу хийд", "en": "Erdene Zuu Monastery", "ko": "에르덴 조 사원" },
+    "period": { "mn": "XVI зуун", "en": "16th century", "ko": "16세기" },
+    "lat": 47.2,
+    "lng": 102.84,
+    "image": "img/monuments/erdene-zuu.jpg",
+    "short": {
+      "mn": "1586 онд Абтай сайн хаан үүсгэн байгуулсан Монголын эртний буддын хийдүүдийн нэг. Дэлхийн өвд бүртгэгдсэн.",
+      "en": "One of the oldest Buddhist monasteries in Mongolia, founded in 1586 by Abtai Sain Khan. Part of a UNESCO World Heritage site.",
+      "ko": "1586년 압타이 사인 칸이 세운 몽골에서 가장 오래된 불교 사원 중 하나로, 유네스코 세계유산에 등재되어 있습니다."
+    }
+  },
+
+  {
+    "id": 2,
+    "aimagId": "MN055",
+    "category": "ruins",
+    "sum": { "mn": "Хархорин", "en": "Kharkhorin", "ko": "하르호린" },
+    "name": { "mn": "Хар хорум хотын туурь", "en": "Karakorum Ruins", "ko": "카라코룸 유적" },
+    "period": { "mn": "XIII зуун", "en": "13th century", "ko": "13세기" },
+    "lat": 47.2,
+    "lng": 102.82,
+    "image": "img/monuments/karakorum.jpg",
+    "short": {
+      "mn": "Их Монгол Улсын нийслэл байсан хот. Одоо туурь болон Хархорин музей хадгалагдаж байна.",
+      "en": "Capital of the Mongol Empire. The ruins and the Kharkhorin museum remain today.",
+      "ko": "몽골 제국의 수도였던 도시로, 현재는 유적과 하르호린 박물관이 남아 있습니다."
+    }
+  },
+
+  {
+    "id": 3,
+    "aimagId": "MN049",
+    "category": "monastery",
+    "sum": { "mn": "Баруунбүрэн", "en": "Baruunburen", "ko": "바룬부렌" },
+    "name": { "mn": "Амарбаясгалант хийд", "en": "Amarbayasgalant Monastery", "ko": "아마르바야스갈란트 사원" },
+    "period": { "mn": "XVIII зуун", "en": "18th century", "ko": "18세기" },
+    "lat": 49.48,
+    "lng": 105.08,
+    "image": "img/monuments/amarbayasgalant.jpg",
+    "short": {
+      "mn": "Дэлгэрийн Богд Занабазарын хүндэтгэлд зориулан 1727–1736 онд барьсан хийд.",
+      "en": "Monastery built in 1727–1736 in honour of Zanabazar, the first Bogd Gegen.",
+      "ko": "초대 복드 게겐 자나바자르를 기리기 위해 1727~1736년에 지은 사원입니다."
+    }
+  },
+
+  {
+    "id": 4,
+    "aimagId": "MN1",
+    "category": "monastery",
+    "sum": { "mn": "Чингэлтэй", "en": "Chingeltei", "ko": "칭겔테이" },
+    "name": { "mn": "Гандантэгчинлэн хийд", "en": "Gandantegchinlen Monastery", "ko": "간단테그첸린 사원" },
+    "period": { "mn": "XIX зуун", "en": "19th century", "ko": "19세기" },
+    "lat": 47.92,
+    "lng": 106.89,
+    "image": "img/monuments/gandan.jpg",
+    "short": {
+      "mn": "1809 онд үүсгэн байгуулагдсан, Монголын буддын шашны төв хийд.",
+      "en": "Central monastery of Mongolian Buddhism, founded in 1809.",
+      "ko": "1809년에 창건된 몽골 불교의 중심 사원입니다."
+    }
+  },
+
+  {
+    "id": 5,
+    "aimagId": "MN1",
+    "category": "monastery",
+    "sum": { "mn": "Сүхбаатар", "en": "Sükhbaatar", "ko": "수흐바타르" },
+    "name": { "mn": "Чойжин ламын сүм музей", "en": "Choijin Lama Temple Museum", "ko": "초이진 라마 사원 박물관" },
+    "period": { "mn": "XX зууны эхэн", "en": "Early 20th century", "ko": "20세기 초" },
+    "lat": 47.915,
+    "lng": 106.917,
+    "image": "img/monuments/choijin-lama.jpg",
+    "short": {
+      "mn": "1904–1908 онд баригдсан, одоо музей болсон сүмийн цогцолбор.",
+      "en": "Temple complex built in 1904–1908, now a museum.",
+      "ko": "1904~1908년에 지어졌으며 현재는 박물관으로 쓰이는 사원 단지입니다."
+    }
+  }
+]

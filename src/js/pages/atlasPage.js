@@ -193,12 +193,14 @@ export async function atlasPage(root) {
     min-height: 0;
   }
 }
-  .atlas-groups {
-  scrollbar-width: none;
+.atlas-sidebar > .atlas-groups {
+  scrollbar-width: none !important;
 }
 
-.atlas-groups::-webkit-scrollbar {
-  display: none;
+.atlas-sidebar > .atlas-groups::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
     </style>

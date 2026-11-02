@@ -96,41 +96,40 @@ export function openAimagModal(aimag, monuments) {
     const ids = boxes.filter((b) => b.checked).map((b) => Number(b.value));
     if (!ids.length) return;
     close();
-    function routeLink(m) {
-      const lat = m.lat;
-      const lng = m.lng;
 
-      if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
-        return "";
-      }
-
-      const params = new URLSearchParams({
-        api: "1",
-        destination: `${lat},${lng}`,
-        travelmode: "driving",
-      });
-
-      const url = `https://www.google.com/maps/dir/?${params}`;
-
-      const label = t("route.directions");
-
-      return `
-    <a
-      href="${esc(url)}"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="${button("default", "sm")}"
-    >
-      ${esc(label)} ↗
-    </a>
-  `;
-    }
     openMonumentModal(
       aimag,
       monuments,
       monuments.filter((m) => ids.includes(m.id)),
     );
   });
+}
+function routeLink(m) {
+  const lat = m.lat;
+  const lng = m.lng;
+
+  if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
+    return "";
+  }
+
+  const params = new URLSearchParams({
+    api: "1",
+    destination: `${lat},${lng}`,
+    travelmode: "driving",
+  });
+
+  const url = `https://www.google.com/maps/dir/?${params}`;
+
+  return `
+    <a
+      href="${esc(url)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="${button("default", "sm")}"
+    >
+      ${esc(t("route.directions"))} ↗
+    </a>
+  `;
 }
 
 export function openMonumentModal(aimag, allMonuments, selected) {

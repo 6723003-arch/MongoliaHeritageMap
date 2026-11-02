@@ -96,6 +96,35 @@ export function openAimagModal(aimag, monuments) {
     const ids = boxes.filter((b) => b.checked).map((b) => Number(b.value));
     if (!ids.length) return;
     close();
+    function routeLink(m) {
+      const lat = m.lat;
+      const lng = m.lng;
+
+      if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
+        return "";
+      }
+
+      const params = new URLSearchParams({
+        api: "1",
+        destination: `${lat},${lng}`,
+        travelmode: "driving",
+      });
+
+      const url = `https://www.google.com/maps/dir/?${params}`;
+
+      const label = t("route.directions");
+
+      return `
+    <a
+      href="${esc(url)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="${button("default", "sm")}"
+    >
+      ${esc(label)} ↗
+    </a>
+  `;
+    }
     openMonumentModal(
       aimag,
       monuments,
@@ -118,6 +147,9 @@ export function openMonumentModal(aimag, allMonuments, selected) {
           <span class="${badge("outline")}">${esc(tr(m.sum))}</span>
         </div>
         <p class="text-sm text-muted-foreground">${esc(tr(m.short))}</p>
+        <div class="pt-2">
+  ${routeLink(m)}
+</div>
       </div>
     </article>`,
     )

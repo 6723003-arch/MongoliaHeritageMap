@@ -64,6 +64,7 @@ export const translations = {
 
     "cat.monastery": "Хийд, сүм",
     "cat.ruins": "Хотын туурь",
+    "route.directions": "Энд хүрэх маршрут",
   },
 
   en: {
@@ -131,6 +132,7 @@ export const translations = {
 
     "cat.monastery": "Monastery / Temple",
     "cat.ruins": "City ruins",
+    "route.directions": "Get directions",
   },
 
   ko: {
@@ -198,5 +200,6 @@ export const translations = {
 
     "cat.monastery": "사원",
     "cat.ruins": "도시 유적",
+    "route.directions": "길찾기",
   },
 };

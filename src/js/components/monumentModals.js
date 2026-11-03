@@ -106,30 +106,14 @@ export function openAimagModal(aimag, monuments) {
   });
 }
 function routeLink(m) {
-  const lat = m.lat;
-  const lng = m.lng;
-
-  if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
-    return "";
-  }
-
-  const params = new URLSearchParams({
-    api: "1",
-    destination: `${lat},${lng}`,
-    travelmode: "driving",
-  });
-
-  const url = `https://www.google.com/maps/dir/?${params}`;
-
   return `
-    <a
-      href="${esc(url)}"
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      data-route-id="${esc(String(m.id))}"
       class="${button("default", "sm")}"
     >
-      ${esc(t("route.directions"))} ↗
-    </a>
+      ${esc(t("route.directions"))}
+    </button>
   `;
 }
 

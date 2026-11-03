@@ -1,5 +1,6 @@
 import { button, badge, card } from "../ui/shadcn.js";
 import { t, tr } from "../i18n/i18n.js";
+import { openRouteModal } from "./routeModal.js";
 
 const placeholder = () =>
   "data:image/svg+xml;utf8," +
@@ -161,6 +162,14 @@ export function openMonumentModal(aimag, allMonuments, selected) {
     footer: `
       <button class="${button("ghost", "sm")}" data-back>${t("dlg.back")}</button>
       <button class="${button("outline", "sm")} ml-auto" data-close>${t("dlg.close")}</button>`,
+  });
+
+  el.querySelectorAll("[data-route-id]").forEach((routeButton) => {
+    routeButton.addEventListener("click", () => {
+      const monument = selected.find((m) => String(m.id) === routeButton.dataset.routeId);
+
+      if (monument) openRouteModal(monument);
+    });
   });
 
   el.querySelectorAll("img").forEach((img) =>
